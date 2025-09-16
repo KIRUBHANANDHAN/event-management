@@ -1,0 +1,35 @@
+
+<div class="event-container">
+  <mat-card>
+    <h2>Add Event</h2>
+
+    <form [formGroup]="eventForm" >
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Enter event title" formControlName="title" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Date</mat-label>
+        <input matInput type="date" formControlName="date" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Location</mat-label>
+        <input matInput placeholder="Enter location" formControlName="location" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Enter description" formControlName="description"></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" class="submit-btn" (click)="submit()">
+        {{ isEdit ? 'Update Event' : 'Add Event' }}
+      </button>
+
+     
+    </form>
+  </mat-card>
+</div>
+

@@ -1,0 +1,16 @@
+
+
+<!-- <nav class="navbar">
+  <a routerLink="/events" routerLinkActive="active">Event List</a>
+  <a routerLink="/add" routerLinkActive="active">Add Event</a>
+</nav> -->
+
+<nav class="navbar">
+  <a routerLink="/events" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Event List</a>
+  <a routerLink="/add" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Add Event</a>
+</nav>
+
+
+<hr>
+
+<router-outlet></router-outlet>

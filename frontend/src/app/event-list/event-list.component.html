@@ -1,0 +1,38 @@
+<h2>Event List</h2>
+
+<div class="search-container">
+  <input
+    type="text"
+    placeholder="Search by title or location..."
+    [(ngModel)]="searchTerm"
+    (input)="applyFilter()"
+    class="search-box"
+  />
+</div>
+
+<div *ngIf="paginatedEvents.length > 0; else noEvents">
+  <mat-card *ngFor="let e of paginatedEvents" class="event-card">
+    <h3>{{ e.title }}</h3>
+    <p><b>Date:</b> {{ e.date | date }}</p>
+    <p><b>Location:</b> {{ e.location }}</p>
+    <p>{{ e.description }}</p>
+
+    <div class="event-actions">
+      <button mat-raised-button color="primary" (click)="onEdit(e)">Edit</button>
+      <button mat-raised-button color="warn" (click)="onDelete(e._id)">Delete</button>
+    </div>
+
+  </mat-card>
+
+  <mat-paginator
+    [length]="events.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[2, 5, 10]"
+    (page)="onPageChange($event)">
+  </mat-paginator>
+</div>
+
+
+<ng-template #noEvents>
+  <p>No events found. Add one above!</p>
+</ng-template>
